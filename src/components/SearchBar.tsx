@@ -62,7 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ doctors, onSearch, initialSearchT
       <div className="relative">
         <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
         <Input
-          data-testid="search-doctors"
+          data-testid="autocomplete-input"
           type="text"
           placeholder="Search for doctors..."
           className="pl-10 pr-4 py-2 w-full border-gray-300 focus:border-medical-blue focus:ring-medical-blue"
@@ -78,6 +78,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ doctors, onSearch, initialSearchT
           {suggestions.map((suggestion) => (
             <li
               key={suggestion.name}
+              data-testid="suggestion-item"
               className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-left"
               onClick={() => handleSelectSuggestion(suggestion)}
             >

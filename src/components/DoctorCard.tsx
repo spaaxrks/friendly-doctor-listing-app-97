@@ -11,7 +11,7 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300" data-testid="doctor-card">
       <CardContent className="p-0">
         <div className="flex flex-col md:flex-row">
           {/* Doctor Image */}
@@ -34,7 +34,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
           {/* Doctor Info */}
           <div className="p-5 md:w-3/4">
             <div className="flex flex-col md:flex-row justify-between mb-3">
-              <h3 className="text-xl font-bold text-medical-dark mb-1">{doctor.name}</h3>
+              <h3 className="text-xl font-bold text-medical-dark mb-1" data-testid="doctor-name">{doctor.name}</h3>
               <div className="flex items-center">
                 {doctor.consultationType?.includes("video") && (
                   <Badge className="bg-medical-blue text-white mr-2 flex items-center gap-1">
@@ -51,8 +51,8 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
               </div>
             </div>
             
-            <div className="mb-3">
-              {doctor.specialty.map((spec) => (
+            <div className="mb-3" data-testid="doctor-specialty">
+              {doctor.specialty?.map((spec) => (
                 <Badge key={spec} variant="outline" className="mr-2 mb-2">
                   {spec}
                 </Badge>
@@ -60,11 +60,11 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div>
+              <div data-testid="doctor-experience">
                 <p className="text-gray-500">Experience</p>
                 <p className="font-semibold">{doctor.experience} years</p>
               </div>
-              <div>
+              <div data-testid="doctor-fee">
                 <p className="text-gray-500">Fees</p>
                 <p className="font-semibold">₹{doctor.fees}</p>
               </div>

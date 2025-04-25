@@ -29,7 +29,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       <h2 className="font-bold text-lg mb-4 text-medical-dark">Filters</h2>
       
       <div className="mb-6">
-        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600">Consultation Type</h3>
+        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600" data-testid="filter-header-moc">Consultation Type</h3>
         <RadioGroup 
           value={consultationType || ""} 
           onValueChange={onConsultationTypeChange}
@@ -57,7 +57,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       <Separator className="my-4" />
       
       <div className="mb-6">
-        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600">Specialties</h3>
+        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600" data-testid="filter-header-speciality">Specialties</h3>
         <div className="space-y-2 max-h-60 overflow-y-auto">
           {specialties.map((specialty) => (
             <div key={specialty} className="flex items-center space-x-2">
@@ -76,7 +76,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       <Separator className="my-4" />
       
       <div>
-        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600">Sort By</h3>
+        <h3 className="font-semibold mb-2 text-sm uppercase text-gray-600" data-testid="filter-header-sort">Sort By</h3>
         <RadioGroup 
           value={sortBy || ""} 
           onValueChange={onSortChange}
